@@ -10,8 +10,9 @@ public class Main extends ListenerAdapter {
 
     public static void main(String[] args) throws LoginException {
         JDABuilder jdaBuilder = new JDABuilder(AccountType.BOT);
-        String token = "NzA1NDk1NzYzNzk0NTI2MzEw.Xqsi2Q.EjRTrUOti9_eWhtGZg3GWGjBrTs";
+        String token = "NzA1NDk1NzYzNzk0NTI2MzEw.XqsyrQ.E9L5NGJarWTScNL87l6sN2C4Quc";
         jdaBuilder.setToken(token);
+        jdaBuilder.addEventListeners(new Main());
         jdaBuilder.build();
     }
 
@@ -21,5 +22,8 @@ public class Main extends ListenerAdapter {
                 + event.getAuthor().getName()
                 + ": " +
                 event.getMessage().getContentDisplay());
+        if(event.getMessage().getContentRaw().equals("!ping")){
+            event.getChannel().sendMessage("RRR").queue();
+        }
     }
 }
