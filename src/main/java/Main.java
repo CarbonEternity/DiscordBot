@@ -10,7 +10,7 @@ public class Main extends ListenerAdapter {
 
     public static void main(String[] args) throws LoginException {
         JDABuilder jdaBuilder = new JDABuilder(AccountType.BOT);
-        String token = "";
+        String token = "NzA1NDk1NzYzNzk0NTI2MzEw.Xqsi2Q.EjRTrUOti9_eWhtGZg3GWGjBrTs";
         jdaBuilder.setToken(token);
         jdaBuilder.build();
     }
