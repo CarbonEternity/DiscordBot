@@ -2,15 +2,19 @@ import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.apache.log4j.Logger;
 
 import javax.annotation.Nonnull;
 import javax.security.auth.login.LoginException;
 
 public class Main extends ListenerAdapter {
 
+    private static Logger logger = Logger.getLogger(Main.class);
+
     public static void main(String[] args) throws LoginException {
         JDABuilder jdaBuilder = new JDABuilder(AccountType.BOT);
-        String token = "NzA1NDk1NzYzNzk0NTI2MzEw.XqsyrQ.E9L5NGJarWTScNL87l6sN2C4Quc";
+        String token = System.getProperty("token");
+        logger.info("loggeeer");
         jdaBuilder.setToken(token);
         jdaBuilder.addEventListeners(new Main());
         jdaBuilder.build();
